@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Hacker vs Cracker</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00cc00;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00cc00;
+    }
+
+    .pergunta {
+      background-color: #111;
+      border: 2px solid #006600;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .pergunta p {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .pergunta label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #007700;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    button:hover {
+      background-color: #00aa00;
+    }
+
+    .feedback {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1em;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz Hacker, Cracker e Segurança</h1>
+
+  <!-- PERGUNTA 1 -->
+  <div class="pergunta">
+    <p>1. O que é um hacker ético?</p>
+    <label><input type="radio" name="q1" value="certo"> Um profissional que testa sistemas com autorização</label>
+    <label><input type="radio" name="q1" value="errado"> Um criminoso virtual</label>
+    <label><input type="radio" name="q1" value="errado"> Alguém que só invade redes Wi-Fi</label>
+    <button onclick="verificarResposta('q1', 'feedback1')">Verificar</button>
+    <div id="feedback1" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 2 -->
+  <div class="pergunta">
+    <p>2. O que define um cracker?</p>
+    <label><input type="radio" name="q2" value="certo"> Alguém que viola sistemas com intenções maliciosas</label>
+    <label><input type="radio" name="q2" value="errado"> Um hacker contratado por empresas</label>
+    <label><input type="radio" name="q2" value="errado"> Um desenvolvedor de softwares livres</label>
+    <button onclick="verificarResposta('q2', 'feedback2')">Verificar</button>
+    <div id="feedback2" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 3 -->
+  <div class="pergunta">
+    <p>3. Qual dessas práticas é considerada criminosa?</p>
+    <label><input type="radio" name="q3" value="errado"> Fazer pentest autorizado</label>
+    <label><input type="radio" name="q3" value="errado"> Reportar bugs de segurança</label>
+    <label><input type="radio" name="q3" value="certo"> Invadir bancos para roubar dados</label>
+    <button onclick="verificarResposta('q3', 'feedback3')">Verificar</button>
+    <div id="feedback3" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 4 -->
+  <div class="pergunta">
+    <p>4. Qual dessas senhas é mais segura?</p>
+    <label><input type="radio" name="q4" value="errado"> 123456</label>
+    <label><input type="radio" name="q4" value="errado"> senha123</label>
+    <label><input type="radio" name="q4" value="certo"> Z$9x@fT!8k</label>
+    <button onclick="verificarResposta('q4', 'feedback4')">Verificar</button>
+    <div id="feedback4" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 5 -->
+  <div class="pergunta">
+    <p>5. O que é um ataque de força bruta?</p>
+    <label><input type="radio" name="q5" value="certo"> Tentativa de adivinhar senhas por tentativa e erro</label>
+    <label><input type="radio" name="q5" value="errado"> Um ataque físico ao servidor</label>
+    <label><input type="radio" name="q5" value="errado"> Um método de criptografia</label>
+    <button onclick="verificarResposta('q5', 'feedback5')">Verificar</button>
+    <div id="feedback5" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 6 -->
+  <div class="pergunta">
+    <p>6. Qual o papel de um firewall?</p>
+    <label><input type="radio" name="q6" value="certo"> Filtrar acessos indevidos à rede</label>
+    <label><input type="radio" name="q6" value="errado"> Gerar vírus para proteger sistemas</label>
+    <label><input type="radio" name="q6" value="errado"> Acelerar a conexão da internet</label>
+    <button onclick="verificarResposta('q6', 'feedback6')">Verificar</button>
+    <div id="feedback6" class="feedback"></div>
+  </div>
+
+  <script>
+    function verificarResposta(nomeGrupo, idFeedback) {
+      const opcoes = document.getElementsByName(nomeGrupo);
+      let selecionado = null;
+
+      for (let opcao of opcoes) {
+        if (opcao.checked) {
+          selecionado = opcao.value;
+          break;
+        }
+      }
+
+      const feedback = document.getElementById(idFeedback);
+
+      if (selecionado === null) {
+        feedback.textContent = '⚠️ Por favor, selecione uma opção.';
+        feedback.style.color = '#ffaa00';
+      } else if (selecionado === 'certo') {
+        feedback.textContent = '✅ Resposta correta!';
+        feedback.style.color = '#66ff66';
+      } else {
+        feedback.textContent = '❌ Resposta incorreta.';
+        feedback.style.color = '#ff6666';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+

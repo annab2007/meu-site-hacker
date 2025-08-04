@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Hackers</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00cc00;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00cc00;
+    }
+
+    .pergunta {
+      background-color: #111;
+      border: 2px solid #006600;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .pergunta p {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .pergunta label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #007700;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    button:hover {
+      background-color: #00aa00;
+    }
+
+    .feedback {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1em;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Conhecimentos sobre Hackers</h1>
+
+  <!-- PERGUNTA 1 -->
+  <div class="pergunta">
+    <p>1. O que faz um hacker ético (White Hat)?</p>
+    <label><input type="radio" name="q1" value="errado"> Espalha vírus em empresas</label>
+    <label><input type="radio" name="q1" value="certo"> Testa sistemas com permissão para encontrar falhas</label>
+    <label><input type="radio" name="q1" value="errado"> Rouba dados de cartões de crédito</label>
+    <button onclick="verificarResposta('q1', 'feedback1')">Verificar</button>
+    <div id="feedback1" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 2 -->
+  <div class="pergunta">
+    <p>2. Qual é a principal motivação de um hacker ético?</p>
+    <label><input type="radio" name="q2" value="errado"> Ganhar dinheiro vendendo dados</label>
+    <label><input type="radio" name="q2" value="certo"> Proteger sistemas e ajudar empresas</label>
+    <label><input type="radio" name="q2" value="errado"> Criar vírus sofisticados</label>
+    <button onclick="verificarResposta('q2', 'feedback2')">Verificar</button>
+    <div id="feedback2" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 3 -->
+  <div class="pergunta">
+    <p>3. O que é um hacker do tipo Gray Hat?</p>
+    <label><input type="radio" name="q3" value="certo"> Alguém que invade sistemas, mas sem más intenções</label>
+    <label><input type="radio" name="q3" value="errado"> Um especialista contratado pelo governo</label>
+    <label><input type="radio" name="q3" value="errado"> Um programador de jogos</label>
+    <button onclick="verificarResposta('q3', 'feedback3')">Verificar</button>
+    <div id="feedback3" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 4 -->
+  <div class="pergunta">
+    <p>4. Qual dessas alternativas descreve melhor um hacker?</p>
+    <label><input type="radio" name="q4" value="certo"> Pessoa com grande conhecimento técnico, nem sempre com más intenções</label>
+    <label><input type="radio" name="q4" value="errado"> Sempre alguém criminoso</label>
+    <label><input type="radio" name="q4" value="errado"> Alguém que só usa redes sociais</label>
+    <button onclick="verificarResposta('q4', 'feedback4')">Verificar</button>
+    <div id="feedback4" class="feedback"></div>
+  </div>
+
+  <!-- PERGUNTA 5 -->
+  <div class="pergunta">
+    <p>5. O que significa “pentest” no universo hacker?</p>
+    <label><input type="radio" name="q5" value="errado"> Hackear celulares de amigos</label>
+    <label><input type="radio" name="q5" value="errado"> Invadir redes sem permissão</label>
+    <label><input type="radio" name="q5" value="certo"> Teste de invasão controlado para identificar falhas</label>
+    <button onclick="verificarResposta('q5', 'feedback5')">Verificar</button>
+    <div id="feedback5" class="feedback"></div>
+  </div>
+
+  <script>
+    function verificarResposta(nomeGrupo, idFeedback) {
+      const opcoes = document.getElementsByName(nomeGrupo);
+      let selecionado = null;
+
+      for (let opcao of opcoes) {
+        if (opcao.checked) {
+          selecionado = opcao.value;
+          break;
+        }
+      }
+
+      const feedback = document.getElementById(idFeedback);
+
+      if (selecionado === null) {
+        feedback.textContent = '⚠️ Por favor, selecione uma opção.';
+        feedback.style.color = '#ffaa00';
+      } else if (selecionado === 'certo') {
+        feedback.textContent = '✅ Resposta correta!';
+        feedback.style.color = '#66ff66';
+      } else {
+        feedback.textContent = '❌ Resposta incorreta.';
+        feedback.style.color = '#ff6666';
+      }
+    }
+  </script>
+
+</body>
+</html>
